@@ -36,10 +36,10 @@ registry = [
         ('SelectorIntersect', 'cmdb.selector_node'),
         ('SelectorUnion', 'cmdb.selector_node'),
         ('SelectorNull', 'cmdb.selector_node'),
-        ('SelectorNodeType', 'cmdb.val_selector_node_type'),
+        ('SelectorNodeType', 'cmdb.selector_node_type'),
         ('Service', 'cmdb.service'),
         ('ServiceInstantiation', 'cmdb.service_instantiation'),
-        ('ServiceEndpoint', 'cmdb.service_instantiation_endpoint'),
+        ('ServiceEndpoint', 'cmdb.service_endpoint'),
     ]
 
 class types(object):
