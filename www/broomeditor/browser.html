@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Broom Code Browser</title>
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <script>
+  $(function() {
+    $("#tabs").tabs();
+ 
+    // fix the classes
+    $(".tabs-bottom .ui-tabs-nav, .tabs-bottom .ui-tabs-nav > *" )
+      .removeClass( "ui-corner-all ui-corner-top" )
+      .addClass( "ui-corner-bottom" );
+ 
+    // move the nav to the bottom
+    $( ".tabs-bottom .ui-tabs-nav" ).appendTo( ".tabs-bottom" );
+  });
+  </script>
+  <style>
+  /* force a height so the tabs don't jump as content height changes */
+  #tabs .tabs-spacer { float: left; height: 200px; }
+  .tabs-bottom .ui-tabs-nav { clear: left; padding: 0 .2em .2em .2em; }
+  .tabs-bottom .ui-tabs-nav li { top: auto; bottom: 0; margin: 0 .2em 1px 0; border-bottom: auto; border-top: 0; }
+  .tabs-bottom .ui-tabs-nav li.ui-tabs-active { margin-top: -1px; padding-top: 1px; }
+  </style>
+</head>
+<body>
+ 
+<div id="tabs" class="tabs-bottom">
+  <ul>
+    <li><a href="#tabs-1">VC</a></li>
+    <li><a href="#tabs-2">Outline</a></li>
+    <li><a href="#tabs-3">Browser</a></li>
+  </ul>
+  <div class="tabs-spacer"></div>
+  <div id="tabs-1">
+    <p>View of versioned source code here.  Columns are:
+      <ul>
+        <li>File name (with local state flag)</li>
+        <li>unioned source areas:</li>
+          <ul>
+            <li>user</li>
+            <li>production</li>
+          </ul>
+      </ul>
+      Right-clicking any file gives a menu that allows one to:
+      <ul>
+        <li>Commit</li>
+          <ul>Automatically runs unit tests, e.g.</ul>
+        <li>Push/Copy</li>
+        <ul>
+          <li>Pushes/copies the file from one source database to another.</li>
+          <li>This is logically separate from pushing to Git in a distributed
+          VCS but if the origin repository is also the source database then
+          in implementation these might be the same.</li>
+          <li>We handle add/commit specially in the editor:
+            <ul>
+            <li>A commit does an add/commit as a single action (across all
+            selected files), to avoid the divide there that adds unneeded
+            overhead.</li>
+            </ul>
+          </li>
+        </ul>
+        <li>Merge</li>
+        <li>Run Unit Tests</li>
+        <li>Request Review</li>
+        <li>Delete</li>
+        <ul><li>Deletes from user database, not from repository. Somewhat like revert.</li></ul>
+        <li>VC Rollback</li>
+        <ul><li>"Rolls back" - loads earlier version of file into editor as if the edits had been made the current version.  A commit will generate a new version number.</li></ul>
+        <li>Branch</li>
+        <li>VC Delete</li>
+        <ul><li>Removes from VCS.</li></ul>
+        </ul>
+  </div>
+  <div id="tabs-2">
+    <p>Outline for currently open file.</p>
+  </div>
+  <div id="tabs-3">
+    <p>Tree hierarchy of all virtual source (all source across unioned source databases).</p>
+  </div>
+</div>
+</body>
+</html>

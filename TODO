@@ -1,0 +1,34 @@
+TODOs
+-----
+
+* Add a wrapper to broom.Column so it is on graph, and then:
+  * Set the database field, but also configure graph-specific data.
+  * Look into using the set event on an attribute to trigger invalidation.
+
+* Write an "inform" client that uses PostgreSQL's LISTEN/NOTIFY 
+  functionality to allow users to subscribe to events.  This will
+  help with, for example, forcing a reload of cached selector
+  dependencies when a new dependency is published.
+
+* Make sure to check how transactions are handled and that we
+  are doing the right thing with regard to rollback/flush.
+
+* Look at PreFilteredQuery for auth-based filtering.
+
+* Optimize loading of joins; lazy vs live.
+
+* Look into how to best handle obj.delete() when an object
+  is part of a collection already loaded as part of another
+  object.
+
+* Look into using @reconstructor for handling ORM-based loading
+  where __init__ isn't called, vs. using __new__ hooks as
+  we're doing now.
+
+* Investigate HTML/JS widget libraries for incorporation
+  into the Broom UI functionality.
+
+* Add a bitemporal event model.
+
+* Support creation of DOMAIN objects in Postgres, with
+  sqlalchemy integration.

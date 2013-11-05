@@ -1,0 +1,69 @@
+<!doctype html>
+ 
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>jQuery UI Tabs - Default functionality</title>
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <script>
+  $(function() {
+    $( "#tabs" ).tabs();
+  });
+  </script>
+</head>
+<body>
+ 
+<div id="tabs">
+  <ul>
+    <li><a href="#tabs-1">Shell</a></li>
+    <li><a href="#tabs-2">Problems</a></li>
+    <li><a href="#tabs-3">Reviews</a></li>
+    <li><a href="#tabs-4">Issues</a></li>
+    <li><a href="#tabs-5">Unit Tests</a></li>
+    <li><a href="#tabs-6">Debugger</a></li>
+  </ul>
+  <div id="tabs-1">
+    Embedded Python shell, with default loading of broom connection to 
+    specified database.
+  </div>
+  <div id="tabs-2">
+    Table listing output of lint messages, updated in real-time.
+
+      <ul>
+        <li>Flag (notice, warning, error)</li>
+        <li>Line number</li>
+        <li>Message</li>
+      </ul>
+  </div>
+  <div id="tabs-3">
+    Table of open review requests, with ability to open existing review,
+    change filter to include other statuses, request a review, etc.
+    Fields include review ID, files included, date opened, status, 
+    requester, target review group.
+  </div>
+  <div id="tabs-4">
+    Table of open issues (linked to ticketing system, e.g. JIRA), with
+    ability to view, sort, close, etc., and also open an external page
+    with the review.
+  </div>
+  <div id="tabs-5">
+    Listing of unit tests linked to from open file(s).
+    Shows if test has run since last save/change, and lists run
+    status, etc.
+
+    Unit tests determined by looking at header of source file, e.g.,
+    YAML lines with some metadata.
+  </div>
+  <div id="tabs-6">
+    Debugging interface, with watched variables, current stacktrace, 
+    and debugging options (add breakpoint, etc.).  Active when a script
+    it run in the interpreter at all times, or enabled via setting of at
+    least one breakpoint in the editor.
+  </div>
+</div>
+ 
+ 
+</body>
+</html>

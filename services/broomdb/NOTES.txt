@@ -1,0 +1,24 @@
+
+We can represent a table in postgres as an object using semantics
+such as the following.
+
+Each row in a given table becomes an object.
+
+Each column becomes a field on the object, subject to the constraints
+determined by the data dictionary. 
+
+Each column in the table's PK becomes a PK field on the object.
+
+Each column in each table UK becomes a UK on the object.
+
+Each incoming FK becomes a deferred query to the outgoing
+table on the current PK.
+
+Each outgoing FK becomes a deferred query to the incoming
+table.
+
+Each FK table may be used purely for linkage; in this case
+we have nothing but other keys, and punt again during
+object creation, but again, don't select.
+
+
