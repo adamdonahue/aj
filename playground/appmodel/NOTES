@@ -1,0 +1,53 @@
+region-based statuses (mailchimp, salesforce)
+
+what is a component vs an application?
+
+
+
+
+Resources
+---------
+Application
+Binary Package
+Source Package
+Git Repository
+Service (semantics, reason for use)
+Host
+Port
+Protocol
+Cluster
+Datacenter
+Environment
+Instance
+Baremetal 
+Collection
+Configuration Setting (typed key-value pair)
+Property
+Property Type
+Configuration (collection of typed key-value pairs)
+Configuration Template (format, interpreter)
+Configuration File (format)
+Database
+Schema
+Database Object
+Version
+Script
+Database Data (static, dynamic)
+Job (crontab, etc.)
+Job Schedule
+Window (as in time)
+
+
+Relationships
+-------------
+Replaces
+Deprecates
+Depends On
+Requires (start/stop)
+Requires (install)
+Is Master For
+Is Slave Of
+Is Peer To
+
+
+

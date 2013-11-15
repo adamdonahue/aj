@@ -1,0 +1,25 @@
+.TH SCHEMASPY 1 APPNEXUS
+.SH NAME
+schemaspy - Generate a visual representation of a database schema as a collection linked HTML pages
+.SH SYNOPSIS
+.B schemaspy [-h] [options]
+.SH AVAILABILITY
+Requires Python 2.7 or higher.
+.SH OPTIONS
+Run 
+.B schemaspy -h
+for extended usage details.
+.SH CONFIGURATION
+.B schemaspy
+leverages an XML-based configuration file.
+.SH EXAMPLES
+The following command would generate a set of HTML files, rooted in
+/var/tmp, containing the schema details for the 
+.B jazzhands 
+database entry as described in the default 
+.B schemaspy.xml 
+configuration file.
+
+schemaspy --database jazzhands --output-directory /var/tmp
+.SH AUTHOR 
+Adam Donahue

@@ -1,0 +1,32 @@
+{
+	"drivers": [
+        {
+            "name":         "postgresql-9.2",
+            "subprotocol":  "postgresql",
+            "class-name":   "org.postgresql.Driver"
+        }
+    ],
+    "databases": [
+        {
+            "name":         "jazzhands",
+            "description":  "Jazzhands",
+            "hostname":     "jazzhands-db.appnexus.net",
+            "port":         null,
+            "username":     "schemaspy_api",
+            "subsubname":   "jazzhands",
+            "driver-name":  "postgresql-9.2",
+            "driver-options": 
+                {
+                    "ssl":  "true",
+                    "sslfactory": "org.postgresql.ssl.NonValidatingFactory"
+                },
+            "database-options": 
+                {
+                },
+            "schemas": 
+                [
+                    "jazzhands"
+                ]
+        }
+    ]
+}

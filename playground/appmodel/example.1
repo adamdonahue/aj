@@ -1,0 +1,140 @@
+Goal: 
+  To map dependencies from an application to the other applications it uses.
+
+Description: 
+  An application for our purposes is a just a label in Maestro.  A
+  version of an application is a label associated with a particular
+  version string, configuration version string, and puppet
+  config version string.
+
+  An application version is installed on zero or more instances.
+  An instance has a hostname, an IP address, and belongs to an
+  environment.  It is also on a particular VLAN.  
+
+  We define "use" here to mean that an application version
+  installed on a particular instance somehow leverages another
+  application version on another instance.  The way in which it
+  is leveraged or how it communicates with that resource
+  is not tracked in detail.
+
+environment:
+  attributes:
+    name
+
+instance:
+  attributes:
+    id
+    hostname
+    ip_address
+  relationships:
+    belongs to one environment
+    
+application:
+  attributes:
+    name
+  relationships:
+    has zero or more application versions
+
+application_version:
+  attributes:
+    version
+    config_version
+    puppet_config_version
+  relationships:
+    version of exactly one application
+    installed zero or more times
+    provides zero or more services
+
+service:
+  direct attributes:
+    name
+    port
+    network_protocol
+    application_protocol
+  relationships:
+    provided by zero or more application_versions
+    
+service_interface:
+  attributes:
+    hostname/ip_address
+    port
+  relationships:
+    interfaces to service
+
+
+Assume apps A, B, and C.
+
+A has version 1.0 and config 1.0.
+B has versions 0.1, 0.2 and configs 0.1, 0.2, 0.3, 0.4.
+C has version 1.1.1.1 and config 1.0, 1.1.
+
+A[1.0,1.0] is installed on a1.nym1 and a2.lax1.
+	a resolves to a.<dc>.
+	a.nym1 resolves to a1.nym1.
+	a.lax1 resolves to a2.lax1.
+
+B[0.1,0.3] is installed on b1.nym1.
+B[0.2,0.4] is installed on b2.nym1.
+	b is a global cname for b1.nym1.
+
+C[1.1.1.1,1.0] is installed on c1.nym1.
+C[1.1.1.1,1.1] is installed on c2.nym1.
+	c resolves to c.nym1.
+	c.nym1 round-robins to c1.nym1 and c2.nym1.
+
+A's 1.0 config references.  
+    b
+    c:8888
+
+B's 0.3 config references:
+    a1.nym1
+
+B's 0.4 config references:
+    a
+
+C's 1.0 config references:
+    c2.nym1:8889
+
+C's 1.1 config references:
+    c:8889
+
+Challenges:
+   I. How do we model DNS resolution: -> x -> x.<dc> -> x<n>.<dc>?
+   II. How do we model round-robin: c -> c1.nym1, c2.nym1?
+   III. How do we map service interface (host[:port]) to service provider (instance:port:protocol)?
+
+I suggest we start simple: can we just go from 
+
+	instance -> instance
+
+Let's take a look at Czar and its dependencies:
+
+app-config/czar: 
+  ldap://ldap.local.appnexus.net
+  mysql-maestro-slave.mgmt.adnxs.net
+  jazzhands-db.appnexus.net (env: prod)
+  02.kovert-sand.nym2.appnexus.net (env: dev)
+  https://czar.adnxs.net/v1 (env: prod)
+  https://czar-dev.adnxs.net/v1 (env: dev)
+  http://<localhost ip address>/v1 (env: !prod and !dev)
+
+app-config/maestro3-api:
+  http://maestro3-api.adnxs.net (env: prod/mgmt)
+  http://maestro3-api.dev.adnxs.net (env: dev)
+  mysql-maestro.mgmt.adnxs.net (env: mgmt)
+  mysql-maestro.dev.adnxs.net (env: !mgmt)
+  01.xmpp.nym2.appnexus.net:5222
+  http://czar.adnxs.net (env: mgmt)
+  http://czar.dev.adnxs.net (env: !mgmt)
+  http://64.208.137.120:17011
+  mysql-master.prod.nym1.adnxs.net
+  git.corp.appnexus.com
+  https://rt.appnexus.net
+  
+
+
+
+
+
+
+
