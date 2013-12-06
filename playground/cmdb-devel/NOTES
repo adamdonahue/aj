@@ -1,0 +1,33 @@
+Needs
+-----
+Data model schema design 
+    objects
+    relationships 
+        cardinallity (one-to-many, many-to-one, many-to-many)
+        type (two-directional)
+            e.g., owns/owned by; feeds/fed by; master for/slave of; etc.
+    levels of details
+    attributes
+
+Look into Google Maps for zoom details and relationships, what can we learn from there?
+Schema evolution tool
+Runbook designer
+
+Model
+-----
+Application
+	File
+		Type
+		Executable
+		Configuration
+	Executable
+Device
+Port
+
+Tasker
+------
+Tasker API
+Tasker Queue
+MySQL
+Redis
+
