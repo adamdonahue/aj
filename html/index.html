@@ -5,36 +5,121 @@
       a:link  { text-decoration: none; color: inherit; }
       a:visited { text-decoration: none; color: inherit; }
       a:active {}
-      a:hover {}
+      a.link:hover { font-variant: small-caps; font-style: normal }
+
+      /* Sticky footer. */
+      #wrapper {
+        overflow: hidden;
+        margin: 200px 0 15px;
+      }
+      header {
+        position: fixed;
+        top: 0;
+        height: 200px;
+        z-index: 600;
+        background-color: white;
+        width: 100%;
+      }
+      footer {
+        position: fixed;
+        bottom: 0;
+        height: 25px;
+        z-index: 600;
+        background-color: rgba(76,89,136,100);
+        width: 100%;
+      }
     </style>
   </head>
-  <body style="background-color: black">
-    <div>
-      <span style="font-family: Didot-Italic; font-size: 100px; color: rgba(212,212,212,100)">Syn</span><span style="font-family: Didot; font-size: 100px; color: rgba(76,89,136,100)">tropy</span>
+  <body>
+    <!-- LOGO / HEADER -->
+  <header>
+    <div style="background-color: white; padding-left: 20px; padding-bottom: 5px;">
+      <span style="font-family: Didot-Italic; font-size: 100px; color: rgba(212,212,212,100)"><em>Syn</em></span><span style="font-family: Didot; font-size: 100px; color: rgba(76,89,136,100)">tropy</span>
     </div>
-    <br/><br/>
-    <div>
-      <span style="color: white; font-family: Didot; font-size: 14px">
-        <!--
-        <a href="broom.html">BROOM</a> | 
-        <a href="earntolearn.html">EARNTOLEARN</a> | 
-        <a href="mentorhawk.html">MENTORHAWK</a> | 
-        <a href="openquartz.html">OPENQUARTZ</a> | 
-        <a href="rewind.html">REWIND</a> &mdash;
-        <em><a href="#">services</a></em> | 
-        <em><a href="#">blog</a></em> |
-        <em><a href="#">portfolio</a></em> |
-        <em><a href="#">labs</a></em>
-        -->
-
-
-
-        
-        <div style="margin-top: 100; width: 400; font-size: 10px" align="right">
-        LAUNCHING SOON.
-        </div>
-
-      </span>
+    <div style="background-color: black; padding-top: 1px; padding-left: 20px;">
+      <table>
+        <tr style="color: white; font-family: Didot; font-size: 14px;">
+          <td width="100">
+            <a href="#">INDUSTRIES</a>
+          </td>
+          <td style="padding-left: 10px;">
+            <em><a href="#" class="link">finance</a></em>
+          </td>
+          <td style="padding-left: 10px;">
+            <em><a href="#" class="link">advertising</a></em>
+          </td>
+          <td style="padding-left: 10px;">
+            <em><a href="#" class="link">entertainment</a></em>
+          </td>
+          <td style="padding-left: 10px;">
+            <em><a href="#" class="link">education</a></em>
+          </td>
+          <td style="padding-left: 10px;">
+            <em><a href="#" class="link">fashion</a></em>
+          </td>
+        </tr>
+      </table>
     </div>
+    <div style="background-color: black; padding-top: 1px; padding-left: 20px;">
+      <table>
+        <tr style="color: white; font-family: Didot; font-size: 14px;">
+          <td width="100">
+            <a href="#">SERVICES</a>
+          </td>
+          <td style="padding-left: 10px">
+            <em><a href="#" class="link">consulting</a></em>
+          </td>
+          <td style="padding-left: 10px">
+            <em><a href="#" class="link">training</a></em>
+          </td>
+          <td style="padding-left: 10px">
+            <em><a href="#" class="link">technical cofounding</a></em>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div style="background-color: black; padding-top: 1px; padding-left: 20px;">
+      <table>
+        <tr style="color: white; font-family: Didot; font-size: 14px;">
+          <td width="100">
+            <a href="#">PRODUCTS</a>
+          </td>
+          <td style="padding-left: 10px">
+            <em><a href="#" class="link">synchro</a></em>
+          </td>
+          <td style="padding-left: 10px">
+            <em><a href="#" class="link">pysyn</a></em>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </header>
+  <div id="wrapper">
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div style="margin: 0; padding: 5px; background-color: rgba(76,89,136,100)">
+      <table style="padding-left: 10px;" cellspacing="0" cellpadding="0" border="0">
+        <tr style="color: white; font-family: Didot; font-size: 14px;">
+          <td width="100">
+            <a href="#">&TC</a>
+          </td>
+          <td style="padding-left: 10px">
+            <em><a href="#" class="link">blog</a></em>
+          </td>
+          <td style="padding-left: 10px">
+            <em><a href="#" class="link">portfolio</a></em>
+          </td>
+          <td style="padding-left: 10px">
+            <em><a href="#" class="link">about us</a></em>
+          </td>
+          <td style="padding-left: 10px">
+            <em><a href="#" class="link">labs</a></em>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </footer>
   </body>
 </html>
