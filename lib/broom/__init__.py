@@ -11,17 +11,24 @@ types.preload()
 def connect():
     import os
     import json
-    configFile = os.getenv('BROOM_CONFIG_FILE')
-    config = json.load(open(configFile)).get('broom_db')
-    if not config:
-        raise RuntimeError("Could not find database configuration.")
+    config_file = os.getenv('BROOM_CONFIG_FILE')
+    if config_file and os.path.exists(config_file):
+        with open(config_file) as f:
+            config = json.load(f)
+            if not config:
+                return
+#    if not config:
+#        raise RuntimeError("Could not find database configuration.")
+#    db = BroomDBClient.connect(
+#            'postgresql+psycopg2://%s:%s@%s:5432/%s' % (
+#                config.get('db_user'),
+#                config.get('db_pass'),
+#                config.get('db_host'),
+#                config.get('db_name')
+#                )
+#            )
     db = BroomDBClient.connect(
-            'postgresql+psycopg2://%s:%s@%s:5432/%s' % (
-                config.get('db_user'),
-                config.get('db_pass'),
-                config.get('db_host'),
-                config.get('db_name')
-                )
+            'sqlite:///:memory:'
             )
     return db
 
