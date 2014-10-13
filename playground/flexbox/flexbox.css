@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  height: 200px;
+  /* flex-direction: row-reverse; */
+  /* flex-wrap: nowrap | wrap | wrap-reverse */
+  /* flex-flow: <'flex-direction'> || <'flex-wrap'> */
+
+  /* justify-content: flex-start | flex-end | center | space-between | space-around */
+  /* align-items: flex-start | flex-end | center | baseline | stretch */
+  /* align-content: flex-start | flex-end | center | space-between | space-around */
+}
+
+.item {
+  border-color: black;
+  border-width: 1px;
+  border-style: solid;
+  margin: auto;
+  /* flex-shrink: <number> */
+  /* flex-basis: <length> | auto */
+  /* flex: none | [ <'flex-grow'> <'flex-shrink'>? || <'flex-basis'> ] */ 
+
+  /* align-self: auto | flex-start | flex-end | center | baseline | stretch */
+}
