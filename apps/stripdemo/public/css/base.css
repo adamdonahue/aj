@@ -1,0 +1,25 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed:300italic,400italic,700italic,400,300,700);
+
+a,
+a:active,
+a:hover,
+a:visited {
+  color: #fff;
+  text-decoration: none;
+}
+
+body {
+  display: flex;
+  background: radial-gradient(circle at 1.99% 99.05%, #348F50, transparent 100%),radial-gradient(circle at 98.01% 92.02%, #56B4D3, transparent 100%),radial-gradient(circle at 50% 50%, #ffffff, #ffffff 100%);
+  color: #fff;
+  font-family: 'Helvetica', sans-serif;
+  font-weight: lighter;
+  flex-direction: column;
+}
+
+.headline {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: bold;
+  font-size: 50pt;
+}
+
