@@ -1,0 +1,22 @@
+{
+  "name": "stripdemo",
+  "version": "0.0.0",
+  "homepage": "https://github.com/adamdonahue/aj",
+  "authors": [
+    "Adam Donahue <adam.donahue@gmail.com>"
+  ],
+  "moduleType": [
+    "node"
+  ],
+  "license": "Proprietary",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~1.11.1"
+  }
+}
