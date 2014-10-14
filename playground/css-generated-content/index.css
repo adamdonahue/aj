@@ -1,0 +1,8 @@
+.before-and-after:before {
+  content: open-quote;
+}
+
+.before-and-after:after {
+  content: close-quote;
+}
+
