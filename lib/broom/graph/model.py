@@ -203,7 +203,7 @@ class BroomObjectBase(object):
             # self.__setattr__(field.name, value)
 
         # TODO: In theory we don't want a user to set arbitrary
-        #       values, at least I don't think we do.  But we 
+        #       values, at least I don't think we do.  But we
         #       need this for now for two reasons:
         #         (i)  To set database fields not yet modeled as
         #              stored fields.

@@ -77,11 +77,11 @@ class BroomParser(ast.NodeTransformer):
     #     return self.Y().Z()
     #
     # becomes
-    # 
-    # def X(self, __INPUTS__):
-    #     return __INPUTS__[0].Z() 
     #
-    # or does it?  I think it should.  
+    # def X(self, __INPUTS__):
+    #     return __INPUTS__[0].Z()
+    #
+    # or does it?  I think it should.
     #
     # Can we track things that are copied off?  Let's see:
     #
@@ -94,7 +94,7 @@ class BroomParser(ast.NodeTransformer):
     #
     # def X(self, __INPUTS__):
     #    y = __INPUTS__[0]
-    #    z = y.Z()              
+    #    z = y.Z()
     #    return z
     #
     # then will this work?  No, because we've now lost detail
@@ -110,7 +110,7 @@ class BroomParser(ast.NodeTransformer):
     # I can note that it's a graph method.  If y is then changed
     # to a non-graph method, then I can remove that notation.
     # If Z is called via y, then I know whether it was called
-    # as a graph method or not.  
+    # as a graph method or not.
     #
     # TODO
     # ----
@@ -123,11 +123,11 @@ class BroomParser(ast.NodeTransformer):
     # If/then statements.  Do we defer these?
     #
     # List and list comprehensions.
-    #     
+    #
     #    The format [x for x in self.Y()]
-    # 
+    #
     # if tricky, because I won't know what x is until evaluation
-    # time.  
+    # time.
     #
     # What about?
     #
@@ -138,7 +138,7 @@ class BroomParser(ast.NodeTransformer):
     # this is the same as x if we track it.  We just have to
     # know that the variable is a graph object and anything
     # called from it is a graph method.
-    # 
+    #
     # The question is how tricky this becomes...
     #
     def __init__(self):
