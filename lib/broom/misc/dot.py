@@ -78,7 +78,7 @@ class DotGrapher(broom.visitor.GraphDepthFirstVisitor):
         label = self.edgeLabel(node, inputNode)
         if label is None:
             return {}
-        return {'label': label} 
+        return {'label': label}
 
     def edgeLabel(self, node, inputNode):
         """Returns a label for the specified edge.
